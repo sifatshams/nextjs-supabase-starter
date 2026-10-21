@@ -2,6 +2,7 @@
   "name": "supabase-first",
   "version": "0.1.0",
   "private": true,
+  "author": "Sifat Bin Anwar",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
