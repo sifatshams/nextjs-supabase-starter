@@ -14,14 +14,20 @@ export default function BlogPage() {
 
 async function PostsList() {
   const supabase = await createClient();
-  const { data: posts, error } = await supabase.from('Posts').select();
+  const { data: posts, error } = await supabase
+    .from('Posts')
+    .select()
+    .eq('published', true);
 
   console.log(posts);
 
   return (
     <ul>
       {posts?.map((post: any) => (
-        <li key={post.id}>{post.title}</li>
+        <div key={post.id}>
+          <li className="mb-1">{post.title}</li>
+          <li className="mb-5">{post.content}</li>
+        </div>
       ))}
     </ul>
   );
